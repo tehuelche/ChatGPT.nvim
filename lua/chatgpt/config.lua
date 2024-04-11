@@ -87,7 +87,7 @@ function M.defaults()
         highlight = "FloatBorder",
         style = "rounded",
         text = {
-          top = " ChatGPT ",
+          top = " LeoGPT ",
         },
       },
       win_options = {
@@ -187,7 +187,7 @@ end
 
 M.options = {}
 
-M.namespace_id = vim.api.nvim_create_namespace("ChatGPTNS")
+M.namespace_id = vim.api.nvim_create_namespace("LeoGPTNS")
 
 function M.setup(options)
   options = options or {}

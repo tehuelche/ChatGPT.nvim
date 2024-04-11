@@ -4,7 +4,7 @@ M.vts = {}
 local Popup = require("nui.popup")
 local Config = require("chatgpt.config")
 
-local namespace_id = vim.api.nvim_create_namespace("ChatGPTNS")
+local namespace_id = vim.api.nvim_create_namespace("LeoGPTNS")
 
 local float_validator = function(min, max)
   return function(value)

@@ -132,7 +132,7 @@ function M.selectAwesomePrompt(opts)
       layout_config = {
         height = 0.5,
       },
-      results_title = "ChatGPT Acts As ...",
+      results_title = "LeoGPT Acts As ...",
       prompt_prefix = Config.options.popup_input.prompt,
       selection_caret = Config.options.chat.answer_sign .. " ",
       prompt_title = "Prompt",

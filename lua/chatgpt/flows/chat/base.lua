@@ -25,7 +25,7 @@ function Chat:init()
   self.input_extmark_id = nil
 
   self.active_panel = nil
-  self.selected_message_nsid = vim.api.nvim_create_namespace("ChatGPTNSSM")
+  self.selected_message_nsid = vim.api.nvim_create_namespace("LeoGPTNSSM")
 
   -- quit indicator
   self.active = true
@@ -85,7 +85,7 @@ function Chat:welcome()
     local lines = Utils.split_string_by_line(Config.options.chat.welcome_message)
     self:set_lines(0, 0, false, lines)
     for line_num = 0, #lines do
-      self:add_highlight("ChatGPTWelcome", line_num, 0, -1)
+      self:add_highlight("LeoGPTWelcome", line_num, 0, -1)
     end
   end
   self:render_role()
@@ -98,12 +98,12 @@ function Chat:render_role()
 
   self.role_extmark_id = vim.api.nvim_buf_set_extmark(self.chat_input.bufnr, Config.namespace_id, 0, 0, {
     virt_text = {
-      { Config.options.chat.border_left_sign, "ChatGPTTotalTokensBorder" },
+      { Config.options.chat.border_left_sign, "LeoGPTTotalTokensBorder" },
       {
         string.upper(self.role),
-        "ChatGPTTotalTokens",
+        "LeoGPTTotalTokens",
       },
-      { Config.options.chat.border_right_sign, "ChatGPTTotalTokensBorder" },
+      { Config.options.chat.border_right_sign, "LeoGPTTotalTokensBorder" },
       { " " },
     },
     virt_text_pos = "right_align",
@@ -334,7 +334,7 @@ function Chat:show_message_selection()
   vim.api.nvim_buf_set_extmark(self.chat_window.bufnr, self.selected_message_nsid, msg.start_line, 0, {
     end_col = 0,
     end_row = msg.end_line + 1,
-    hl_group = "ChatGPTSelectedMessage",
+    hl_group = "LeoGPTSelectedMessage",
     hl_eol = true,
   })
   self:render_message_actions()
@@ -373,21 +373,21 @@ function Chat:render_message_actions()
       virt_text = {
         {
           " Delete (" .. Config.options.chat.keymaps.delete_message .. ") ",
-          "ChatGPTMessageAction",
+          "LeoGPTMessageAction",
         },
-        { " ", "ChatGPTSelectedMessage" },
+        { " ", "LeoGPTSelectedMessage" },
       },
       virt_text_pos = "right_align",
     })
 
     -- vim.api.nvim_buf_set_extmark(self.chat_window.bufnr, self.selected_message_nsid, msg.start_line, 0, {
     --   virt_text = {
-    --     { "  ", "ChatGPTSelectedMessage" },
+    --     { "  ", "LeoGPTSelectedMessage" },
     --     {
     --       " Edit (" .. Config.options.chat.keymaps.edit_message .. ") ",
-    --       "ChatGPTMessageAction",
+    --       "LeoGPTMessageAction",
     --     },
-    --     { " ", "ChatGPTSelectedMessage" },
+    --     { " ", "LeoGPTSelectedMessage" },
     --   },
     --   virt_text_pos = "right_align",
     -- })
@@ -439,7 +439,7 @@ function Chat:renderLastMessage()
 
   if msg.type == QUESTION then
     for index, _ in ipairs(lines) do
-      self:add_highlight("ChatGPTQuestion", msg.start_line + index - 1, 0, -1)
+      self:add_highlight("LeoGPTQuestion", msg.start_line + index - 1, 0, -1)
     end
 
     pcall(
@@ -456,12 +456,12 @@ function Chat:renderLastMessage()
       self.messages[self.selectedIndex].extmark_id =
         vim.api.nvim_buf_set_extmark(self.chat_window.bufnr, Config.namespace_id, msg.end_line + 1, 0, {
           virt_text = {
-            { Config.options.chat.border_left_sign, "ChatGPTTotalTokensBorder" },
+            { Config.options.chat.border_left_sign, "LeoGPTTotalTokensBorder" },
             {
               "TOKENS: " .. msg.usage.total_tokens,
-              "ChatGPTTotalTokens",
+              "LeoGPTTotalTokens",
             },
-            { Config.options.chat.border_right_sign, "ChatGPTTotalTokensBorder" },
+            { Config.options.chat.border_right_sign, "LeoGPTTotalTokensBorder" },
             { " ", "" },
           },
           virt_text_pos = "right_align",
@@ -594,9 +594,9 @@ function Chat:display_input_suffix(suffix)
   if suffix then
     self.extmark_id = vim.api.nvim_buf_set_extmark(self.chat_input.bufnr, Config.namespace_id, 0, -1, {
       virt_text = {
-        { Config.options.chat.border_left_sign, "ChatGPTTotalTokensBorder" },
-        { "" .. suffix, "ChatGPTTotalTokens" },
-        { Config.options.chat.border_right_sign, "ChatGPTTotalTokensBorder" },
+        { Config.options.chat.border_left_sign, "LeoGPTTotalTokensBorder" },
+        { "" .. suffix, "LeoGPTTotalTokens" },
+        { Config.options.chat.border_right_sign, "LeoGPTTotalTokensBorder" },
         { " ", "" },
       },
       virt_text_pos = "right_align",

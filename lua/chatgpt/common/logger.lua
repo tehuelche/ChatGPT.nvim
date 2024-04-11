@@ -1,4 +1,4 @@
 return require("plenary.log").new({
-  plugin = "ChatGPT",
+  plugin = "LeoGPT",
   level = "info",
 })

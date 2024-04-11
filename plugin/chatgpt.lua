@@ -1,18 +1,18 @@
-vim.api.nvim_create_user_command("ChatGPT", function()
+vim.api.nvim_create_user_command("LeoGPT", function()
   require("chatgpt").openChat()
 end, {})
 
-vim.api.nvim_create_user_command("ChatGPTActAs", function()
+vim.api.nvim_create_user_command("LeoGPTActAs", function()
   require("chatgpt").selectAwesomePrompt()
 end, {})
 
-vim.api.nvim_create_user_command("ChatGPTEditWithInstructions", function()
+vim.api.nvim_create_user_command("LeoGPTEditWithInstructions", function()
   require("chatgpt").edit_with_instructions()
 end, {
   range = true,
 })
 
-vim.api.nvim_create_user_command("ChatGPTRun", function(opts)
+vim.api.nvim_create_user_command("LeoGPTRun", function(opts)
   require("chatgpt").run_action(opts)
 end, {
   nargs = "*",
@@ -31,6 +31,6 @@ end, {
   end,
 })
 
-vim.api.nvim_create_user_command("ChatGPTCompleteCode", function(opts)
+vim.api.nvim_create_user_command("LeoGPTCompleteCode", function(opts)
   require("chatgpt").complete_code(opts)
 end, {})

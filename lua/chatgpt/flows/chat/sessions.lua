@@ -7,7 +7,7 @@ local Session = require("chatgpt.flows.chat.session")
 local Utils = require("chatgpt.utils")
 local InputWidget = require("chatgpt.common.input_widget")
 
-local namespace_id = vim.api.nvim_create_namespace("ChatGPTNS")
+local namespace_id = vim.api.nvim_create_namespace("LeoGPTNS")
 
 M.set_current_line = function()
   M.current_line, _ = unpack(vim.api.nvim_win_get_cursor(M.panel.winid))

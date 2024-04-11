@@ -6,7 +6,7 @@ local Config = require("chatgpt.config")
 
 local BaseAction = classes.class()
 
-local namespace_id = vim.api.nvim_create_namespace("ChatGPTNS")
+local namespace_id = vim.api.nvim_create_namespace("LeoGPTNS")
 
 local function get_selection_center(start_row, start_col, end_row, end_col)
   if start_row < end_row then
@@ -77,9 +77,9 @@ function BaseAction:render_spinner(state)
       start_row, start_col = get_selection_center(start_row, start_col, end_row, end_col)
       self.extmark_id = vim.api.nvim_buf_set_extmark(bufnr, namespace_id, start_row, 0, {
         virt_text = {
-          { Config.options.chat.border_left_sign, "ChatGPTTotalTokensBorder" },
-          { state .. " Processing, please wait ...", "ChatGPTTotalTokens" },
-          { Config.options.chat.border_right_sign, "ChatGPTTotalTokensBorder" },
+          { Config.options.chat.border_left_sign, "LeoGPTTotalTokensBorder" },
+          { state .. " Processing, please wait ...", "LeoGPTTotalTokens" },
+          { Config.options.chat.border_right_sign, "LeoGPTTotalTokensBorder" },
           { " ", "" },
         },
         virt_text_pos = "eol",

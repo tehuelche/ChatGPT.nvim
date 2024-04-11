@@ -64,7 +64,7 @@ local build_edit_messages = function(input, instructions, use_functions_for_edit
   return messages
 end
 
-local namespace_id = vim.api.nvim_create_namespace("ChatGPTNS")
+local namespace_id = vim.api.nvim_create_namespace("LeoGPTNS")
 
 local instructions_input, layout, input_window, output_window, output, timer, filetype, bufnr, extmark_id
 
@@ -79,9 +79,9 @@ local display_input_suffix = function(suffix)
 
   extmark_id = vim.api.nvim_buf_set_extmark(instructions_input.bufnr, namespace_id, 0, -1, {
     virt_text = {
-      { Config.options.chat.border_left_sign, "ChatGPTTotalTokensBorder" },
-      { "" .. suffix, "ChatGPTTotalTokens" },
-      { Config.options.chat.border_right_sign, "ChatGPTTotalTokensBorder" },
+      { Config.options.chat.border_left_sign, "LeoGPTTotalTokensBorder" },
+      { "" .. suffix, "LeoGPTTotalTokens" },
+      { Config.options.chat.border_right_sign, "LeoGPTTotalTokensBorder" },
       { " ", "" },
     },
     virt_text_pos = "right_align",

@@ -5,7 +5,7 @@ local Spinner = require("chatgpt.spinner")
 
 local M = {}
 
-local namespace_id = vim.api.nvim_create_namespace("ChatGPTCC")
+local namespace_id = vim.api.nvim_create_namespace("LeoGPTCC")
 
 M.complete = function()
   local buffer = vim.api.nvim_get_current_buf()
@@ -32,7 +32,7 @@ M.complete = function()
               virt_text = {
                 {
                   state .. " loading completion ...                                                 ",
-                  "ChatGPTCompletion",
+                  "LeoGPTCompletion",
                 },
               },
               virt_text_pos = "overlay",
@@ -99,8 +99,8 @@ M.complete = function()
     vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, lines)
 
     for i = 0, #lines - 1, 1 do
-      vim.api.nvim_buf_add_highlight(buffer, namespace_id, "ChatGPTCompletion", start_row + i, 0, -1)
-      vim.api.nvim_buf_add_highlight(popup.bufnr, namespace_id, "ChatGPTCompletion", i, 0, -1)
+      vim.api.nvim_buf_add_highlight(buffer, namespace_id, "LeoGPTCompletion", start_row + i, 0, -1)
+      vim.api.nvim_buf_add_highlight(popup.bufnr, namespace_id, "LeoGPTCompletion", i, 0, -1)
     end
 
     popup:map("n", "<Enter>", function()

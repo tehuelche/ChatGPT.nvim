@@ -24,7 +24,7 @@ M.open_with_awesome_prompt = function()
 
       local chat = Chat:new()
       chat:open()
-      chat.chat_window.border:set_text("top", " ChatGPT - Acts as " .. act .. " ", "center")
+      chat.chat_window.border:set_text("top", " LeoGPT - Acts as " .. act .. " ", "center")
 
       chat:set_system_message(prompt)
       chat:open_system_panel()
